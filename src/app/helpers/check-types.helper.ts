@@ -17,7 +17,7 @@ import {
 import { ResultCheckType } from '../interfaces/checks-helper.interface';
 import { getClassName } from './entity.helper';
 
-export function checkType(obj) : ResultCheckType {
+export function checkType(obj: any) : ResultCheckType {
     let result : ResultCheckType = {
         getObjectType   : "",
         isArray         : (obj) ? isJSONArray(obj) : false,

@@ -1,4 +1,4 @@
-// ####################################################################################################
+//####################################################################################################
 // ## IMPORTACIÓNS
 // ####################################################################################################
 import { CustomBaseEntity } from "./custom-base-entity.model";
@@ -21,11 +21,11 @@ export class AssignedStage extends CustomBaseEntity {
     public targetFinishDate?    : Date;
 
     // Relacións
-    public createdBy            : User;
+    public createdBy!           : User;
 
-    public stage                : Stage;
+    public stage!               : Stage;
 
-    public currentState         : State;
+    public currentState!        : State;
 
     public validationUsers      : User[] = [];
 

@@ -25,8 +25,8 @@ export class Requirement extends CustomBaseEntity {
     public targetStartDate?     : Date;
     public targetFinishDate?    : Date;
 
-    public name                 : string;
-    public description          : string;
+    public name!                : string;
+    public description!         : string;
 
     // Relacións reflexivas
     public dependencies         : Requirement[] = [];
@@ -36,7 +36,7 @@ export class Requirement extends CustomBaseEntity {
 
     public assignedUsers        : AssignedUser[] = [];
 
-    public createdBy            : User;
+    public createdBy!           : User;
 
     public visibleToUserGroups  : UserGroup[] = [];
 
@@ -52,9 +52,9 @@ export class Requirement extends CustomBaseEntity {
 
     public comments             : CommentApp[] = [];
 
-    public priority             : Priority;
+    public priority?            : Priority;
 
-    public type                 : TypeApp;
+    public type?                : TypeApp;
 
     // ************************************************************************************************
     // ** CONSTRUTOR

@@ -15,11 +15,11 @@ export class CommentApp extends CustomBaseEntity {
     // ************************************************************************************************
     public expirationDate?      : Date;
 
-    public title                : string;
-    public message              : string;
+    public title!               : string;
+    public message!             : string;
 
     // Relacións
-    public createdBy            : User;
+    public createdBy!           : User;
 
     public visibleToUserGroups  : UserGroup[] = [];
 

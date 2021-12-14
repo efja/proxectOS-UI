@@ -15,17 +15,17 @@ export class StateHistory extends CustomBaseEntity {
     // ************************************************************************************************
     // ** ATRIBUTOS
     // ************************************************************************************************
-    public log                  : string;
+    public log!                 : string;
 
     // Relacións
     public oldState?            : State;
-    public newState             : State;
+    public newState!            : State;
 
-    public createdBy            : User;
+    public createdBy!           : User;
 
     public visibleToUserGroups  : Role[] = [];
 
-    public assignedStage        : AssignedStage;
+    public assignedStage!       : AssignedStage;
 
     // ************************************************************************************************
     // ** CONSTRUTOR

@@ -23,15 +23,15 @@ export class Resource extends CustomBaseEntity {
     // ************************************************************************************************
     // ** ATRIBUTOS
     // ************************************************************************************************
-    public name         : string;
-    public description  : string;
+    public name!        : string;
+    public description! : string;
 
-    public scale        : ResourceScale.HOUR;
+    public scale!       : ResourceScale.HOUR;
 
-    public unitCost     : number;
+    public unitCost!    : number;
 
     // Relacións
-    public createdBy    : User;
+    public createdBy!   : User;
 
     public comments     : CommentApp[] = [];
 

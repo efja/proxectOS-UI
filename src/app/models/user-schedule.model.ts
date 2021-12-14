@@ -10,10 +10,10 @@ export class UserSchedule extends CustomBaseEntity {
     // ************************************************************************************************
     // ** ATRIBUTOS
     // ************************************************************************************************
-    public description      : string;
-    public worksWeekends    : boolean;
-    public weeklyHours      : number;
-    public holidays         : Date[];
+    public description!     : string;
+    public worksWeekends!   : boolean;
+    public weeklyHours!     : number;
+    public holidays!        : Date[];
 
     // ************************************************************************************************
     // ** CONSTRUTOR

@@ -12,8 +12,8 @@ export class UserGroup extends CustomBaseEntity {
     // ************************************************************************************************
     // ** ATRIBUTOS
     // ************************************************************************************************
-    public name         : string;
-    public description  : string;
+    public name!        : string;
+    public description! : string;
 
     // Relacións
     public defaultRoles : Role[] = [];

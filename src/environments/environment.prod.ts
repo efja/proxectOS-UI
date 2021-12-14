@@ -8,6 +8,6 @@ export const environment = {
   APP_DESCRIPTION : 'ProxectOS-UI',
   API_HOST        : 'http://localhost',
   API_PORT        : '3000',
-  API_ROUTE       : 'api/v0/',
-  API_URI         : 'http://localhost:3000(api/v0/)',
+  API_ROUTE       : 'api/v0',
+  API_URI         : 'http://localhost:3000/api/v0',
 };

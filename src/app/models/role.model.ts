@@ -10,14 +10,14 @@ export class Role extends CustomBaseEntity {
     // ************************************************************************************************
     // ** ATRIBUTOS
     // ************************************************************************************************
-    public name             : string;
-    public description      : string;
-    public isSystemAdmin    : boolean;
+    public name!            : string;
+    public description!     : string;
+    public isSystemAdmin!   : boolean;
 
-    public create           : boolean;
-    public delete           : boolean;
-    public read             : boolean;
-    public update           : boolean;
+    public create!          : boolean;
+    public delete!          : boolean;
+    public read!            : boolean;
+    public update!          : boolean;
 
     // Relacións
 

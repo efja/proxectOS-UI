@@ -14,21 +14,21 @@ export class User extends CustomBaseEntity {
     // ************************************************************************************************
     // ** ATRIBUTOS
     // ************************************************************************************************
-    public name                 : string;
-    public firstSurname         : string;
-    public secondSurname        : string;
+    public name!                : string;
+    public firstSurname!        : string;
+    public secondSurname!       : string;
 
-    public login                : string;
-    public password             : string;
+    public login!               : string;
+    public password!            : string;
 
-    public isCustomer           : boolean;
+    public isCustomer!          : boolean;
 
-    public salary               : number;
-    public flexibleSchedule     : boolean;
-    public vacantions           : Date[];
+    public salary!              : number;
+    public flexibleSchedule!    : boolean;
+    public vacantions!          : Date[];
 
     // Relacións
-    public userSchedule         : UserSchedule;
+    public userSchedule!        : UserSchedule;
     public contacts             : UserContact[] = [];
 
     public defaultUserGroups    : UserGroup[] = [];

@@ -17,12 +17,12 @@ export class RepositoryApp extends CustomBaseEntity {
     // ************************************************************************************************
     public expirationDate?      : Date;
 
-    public name                 : string;
-    public description          : string;
-    public uri                  : string;
+    public name!                : string;
+    public description!         : string;
+    public uri!                 : string;
 
     // Relacións
-    public createdBy            : User;
+    public createdBy!           : User;
 
     public assignedUsers        : AssignedUser[] = [];
 

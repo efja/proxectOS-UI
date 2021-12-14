@@ -22,17 +22,17 @@ export class Project extends CustomBaseEntity {
     public targetStartDate?     : Date;
     public targetFinishDate?    : Date;
 
-    public name                 : string;
-    public description          : string;
+    public name!                : string;
+    public description!         : string;
 
     // Relacións
-    public assignedStage        : AssignedStage;
+    public assignedStage!       : AssignedStage;
 
-    public createdBy            : User;
+    public createdBy!           : User;
 
     public assignedUsers        : AssignedUser[] = [];
 
-    public productOwner         : User;
+    public productOwner!        : User;
 
     public requirements         : Requirement[] = [];
 

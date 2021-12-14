@@ -12,8 +12,8 @@ export class UserContact extends CustomBaseEntity {
     // ************************************************************************************************
     // ** ATRIBUTOS
     // ************************************************************************************************
-    public type    : UserContactType;
-    public contact : string;
+    public type!    : UserContactType;
+    public contact! : string;
 
     // ************************************************************************************************
     // ** CONSTRUTOR

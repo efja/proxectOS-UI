@@ -15,9 +15,9 @@ export class AssignedUser extends CustomBaseEntity {
     // ** ATRIBUTOS
     // ************************************************************************************************
     // Relacións
-    public createdBy            : User;
+    public createdBy!           : User;
 
-    public assignedUser         : User;
+    public assignedUser!        : User;
     public assignedRoles        : Role[] = [];
     public assignedUserGroups   : UserGroup[] = [];
 

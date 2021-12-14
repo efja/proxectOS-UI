@@ -61,7 +61,7 @@ function getAPIVersion(): string {
 }
 
 function getAPICompleteURI(): string {
-  return `${process.env.API_HOST}:${process.env.API_PORT}(${process.env.API_ROUTE})`;
+  return `${process.env.API_HOST}:${process.env.API_PORT}/${process.env.API_ROUTE}`;
 }
 
 /* tslint:enable */

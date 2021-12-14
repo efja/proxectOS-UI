@@ -14,15 +14,15 @@ export class AssignedResource extends CustomBaseEntity {
     // ************************************************************************************************
     // ** ATRIBUTOS
     // ************************************************************************************************
-    public description  : string;
+    public description! : string;
 
-    public amount       : number;
-    public unitCost     : number;
+    public amount!      : number;
+    public unitCost!    : number;
 
     // Relacións
-    public createdBy    : User;
+    public createdBy!   : User;
 
-    public resource     : Resource;
+    public resource!    : Resource;
 
     public comments     : CommentApp[] = [];
 
