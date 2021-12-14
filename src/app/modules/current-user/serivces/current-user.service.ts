@@ -4,8 +4,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from '../../../environments/environment';
-import { ResponseData, ResponseMe } from '../../interfaces/response-data.interface';
+import { environment } from 'src/environments/environment';
+import { ResponseData, ResponseMe } from 'src/app/interfaces/response-data.interface';
 
 // ##################################################################################################
 // ## CLASE BaseService

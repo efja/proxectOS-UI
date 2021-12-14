@@ -1,25 +1,51 @@
+// ##################################################################################################
+// ## IMPORTACIÓNS
+// ##################################################################################################
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// --------------------------------------------------------------------------------------------------
 // Traduccións
+// --------------------------------------------------------------------------------------------------
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 
-// Módulos
-import { SharedModule } from './shared/shared.module';
+// --------------------------------------------------------------------------------------------------
+// Módulos propios
+// --------------------------------------------------------------------------------------------------
+import { SharedModule } from './modules/shared/shared.module';
+import { ModelsModule } from './modules/models/models.module';
+import { AdminModule } from './modules/admin/admin.module';
+import { CurrentUserModule } from './modules/current-user/current-user.module';
+
+// --------------------------------------------------------------------------------------------------
+// Compoñentes propios
+// --------------------------------------------------------------------------------------------------
+import { AdminComponent } from './pages/admin/admin.component';
+import { CurrentUserComponent } from './pages/current-user/current-user.component';
 
 @NgModule({
+  // ------------------------------------------------------------------------------------------------
+  // -- DECLARATIONS
+  // ------------------------------------------------------------------------------------------------
   declarations: [
-    AppComponent
+    AppComponent,
+
+    // Compoñentes propios
+    AdminComponent,
+    CurrentUserComponent,
   ],
+
+  // ------------------------------------------------------------------------------------------------
+  // -- IMPORTS
+  // ------------------------------------------------------------------------------------------------
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,
 
     // Traduccións
     HttpClientModule,
@@ -29,14 +55,30 @@ import { SharedModule } from './shared/shared.module';
             useFactory: HttpLoaderFactory,
             deps: [HttpClient]
         }
-    })
+    }),
+
+    // Módulos propios
+    SharedModule,
+    ModelsModule,
+    AdminModule,
+    CurrentUserModule,
   ],
+
+  // ------------------------------------------------------------------------------------------------
+  // -- PROVIDERS
+  // ------------------------------------------------------------------------------------------------
   providers: [],
+
+  // ------------------------------------------------------------------------------------------------
+  // -- BOOTSTRAP
+  // ------------------------------------------------------------------------------------------------
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
+// --------------------------------------------------------------------------------------------------
 // Traduccións
+// --------------------------------------------------------------------------------------------------
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
 }

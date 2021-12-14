@@ -1,11 +1,11 @@
 // ##################################################################################################
 // ## IMPORTACIÓNS
 // ##################################################################################################
-import { ResponseData, ResponseUserCommons } from '../../interfaces/response-data.interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from '../../../environments/environment';
+import { environment } from 'src/environments/environment';
+import { ResponseData, ResponseUserCommons } from 'src/app/interfaces/response-data.interface';
 
 // ##################################################################################################
 // ## CLASE AdminService

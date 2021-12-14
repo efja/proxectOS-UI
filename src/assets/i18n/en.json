@@ -1,5 +1,11 @@
 {
     "WELCOME": "Welcome to {{app}}, version: {{version}}",
+    "MENU": {
+      "HOME": "Home",
+      "ADMIN": "Administrationn",
+      "ME": "My data",
+      "SUMMARY": "Summaries"
+    },
     "COMMON": {
         "CREATED_DATE": "Creation date"
     },
