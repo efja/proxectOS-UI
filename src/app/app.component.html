@@ -1,6 +1,8 @@
 <div>
   <app-menu></app-menu>
-  <h1>{{ 'WELCOME' | translate:{'app': 'probando', 'version': 'versión'} }}</h1>
+  <!-- <h1>{{ 'WELCOME' | translate:{ app, version } }}</h1> -->
+  <p>{{ app | json }}</p>
+  <p>{{ version | json }}</p>
 
   <router-outlet></router-outlet>
 </div>

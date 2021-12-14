@@ -1,0 +1,8 @@
+APP_NAME=ProxectOS
+APP_DESCRIPTION=ProxectOS-UI
+APP_PREFIX=v
+
+API_HOST=http://localhost
+API_PORT=3000
+API_ROUTE=api/v0/
+
