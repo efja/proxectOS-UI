@@ -20,18 +20,22 @@ export class MenuComponent implements OnInit {
       // {
       //   label: 'MENU.HOME',
       //   icon: 'pi pi-home',
+      //   routerLink : '/',
       // },
       {
         label: 'MENU.ME',
         icon: 'pi pi-user',
+        routerLink : '/',
       },
       {
         label: 'MENU.ADMIN',
         icon: 'pi pi-cog',
+        routerLink : '/admin',
       },
       // {
       //   label: 'MENU.SUMMARY',
       //   icon: 'pi pi-chart-bar',
+      //   routerLink : '/summaries',
       // },
     ];
 

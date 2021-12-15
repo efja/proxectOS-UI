@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 // Módulos propios
 // --------------------------------------------------------------------------------------------------
 import { ThemeModule } from '../theme/theme.module';
+import { UserListComponent } from './user-list/user-list.component';
 
 // --------------------------------------------------------------------------------------------------
 // Compoñentes propios
@@ -19,6 +20,7 @@ import { ThemeModule } from '../theme/theme.module';
   // ------------------------------------------------------------------------------------------------
   declarations: [
     // Compoñentes propios
+    UserListComponent,
   ],
 
   // ------------------------------------------------------------------------------------------------
@@ -35,6 +37,8 @@ import { ThemeModule } from '../theme/theme.module';
   // -- EXPORTS
   // ------------------------------------------------------------------------------------------------
   exports: [
+    // Compoñentes propios
+    UserListComponent,
   ],
 })
 export class ModelsModule { }
