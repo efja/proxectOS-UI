@@ -1,0 +1,67 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title fxLayout="row" fxLayoutAlign="start cv">
+      Probando Usuario
+    </mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="formGroupControl" autocomplete="off" class="d-flex d-flex flex-wrap align-items-start">
+        <mat-form-field class="mx-1">
+          <input matInput="matInput" name="name" placeholder="Name" formControlName="name" required />
+        </mat-form-field>
+
+        <mat-form-field class="mx-1">
+          <input matInput="matInput" name="firstSurname" placeholder="First Surname" formControlName="firstSurname"
+            required />
+        </mat-form-field>
+
+        <mat-form-field class="mx-1">
+          <input matInput="matInput" name="secondSurname" placeholder="Second Surname" formControlName="secondSurname" />
+        </mat-form-field>
+
+        <mat-form-field class="mx-1">
+          <input matInput="matInput" name="login" placeholder="Login name" formControlName="login" required />
+        </mat-form-field>
+
+        <mat-form-field class="mx-1">
+          <input matInput="matInput" name="password" placeholder="Password" formControlName="password" required />
+        </mat-form-field>
+
+        <mat-form-field class="mx-1">
+          <input matInput="matInput" name="isCustomer" placeholder="Customer" formControlName="isCustomer" />
+        </mat-form-field>
+
+        <mat-form-field class="mx-1">
+          <input matInput="matInput" name="salary" placeholder="Salary" formControlName="salary" />
+        </mat-form-field>
+
+        <mat-form-field class="mx-1">
+          <input matInput="matInput" name="flexibleSchedule" placeholder="Flexible Schedule"
+            formControlName="flexibleSchedule" />
+        </mat-form-field>
+
+        <mat-form-field class="mx-1">
+          <input matInput="matInput" name="vacantions" placeholder="Vacantions" formControlName="vacantions" />
+        </mat-form-field>
+
+        <mat-form-field class="mx-1">
+          <input matInput="matInput" name="userSchedule" placeholder="User Schedule" formControlName="userSchedule" />
+        </mat-form-field>
+
+        <mat-form-field class="mx-1">
+          <input matInput="matInput" name="contacts" placeholder="Contacts" formControlName="contacts" required />
+        </mat-form-field>
+
+        <mat-form-field class="mx-1">
+          <input matInput="matInput" name="defaultUserGroups" placeholder="Default Groups"
+            formControlName="defaultUserGroups" />
+        </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions [align]="'end'">
+    <button mat-raised-button>BOTÓN</button>
+  </mat-card-actions>
+
+</mat-card>

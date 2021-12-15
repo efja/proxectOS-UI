@@ -8,7 +8,8 @@ import { CommonModule } from '@angular/common';
 // Módulos propios
 // --------------------------------------------------------------------------------------------------
 import { ThemeModule } from '../theme/theme.module';
-import { UserListComponent } from './user-list/user-list.component';
+import { UserListComponent } from './user/user-list/user-list.component';
+import { UserFormComponent } from './user/user-form/user-form.component';
 
 // --------------------------------------------------------------------------------------------------
 // Compoñentes propios
@@ -21,6 +22,7 @@ import { UserListComponent } from './user-list/user-list.component';
   declarations: [
     // Compoñentes propios
     UserListComponent,
+    UserFormComponent,
   ],
 
   // ------------------------------------------------------------------------------------------------
@@ -39,6 +41,7 @@ import { UserListComponent } from './user-list/user-list.component';
   exports: [
     // Compoñentes propios
     UserListComponent,
+    UserFormComponent,
   ],
 })
 export class ModelsModule { }

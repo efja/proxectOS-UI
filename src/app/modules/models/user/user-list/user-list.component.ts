@@ -4,15 +4,16 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
+
 // ##################################################################################################
-// ## CLASE AdminComponent
+// ## CLASE UserListComponent
 // ##################################################################################################
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.css']
 })
-export class AdminComponent implements OnInit {
+export class UserListComponent implements OnInit {
   // ************************************************************************************************
   // ** ATRIBUTOS
   // ************************************************************************************************

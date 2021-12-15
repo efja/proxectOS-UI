@@ -27,6 +27,8 @@ import { CurrentUserModule } from './modules/current-user/current-user.module';
 // --------------------------------------------------------------------------------------------------
 import { AdminComponent } from './pages/admin/admin.component';
 import { CurrentUserComponent } from './pages/current-user/current-user.component';
+import { ThemeModule } from './modules/theme/theme.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   // ------------------------------------------------------------------------------------------------
@@ -62,6 +64,8 @@ import { CurrentUserComponent } from './pages/current-user/current-user.componen
     ModelsModule,
     AdminModule,
     CurrentUserModule,
+    ThemeModule,
+    BrowserAnimationsModule,
   ],
 
   // ------------------------------------------------------------------------------------------------

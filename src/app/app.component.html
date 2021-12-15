@@ -1,6 +1,6 @@
-<div>
   <app-menu></app-menu>
   <p>{{ 'WELCOME' | translate:{ app, version } }}</p>
 
-  <router-outlet></router-outlet>
-</div>
+  <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="gappx">
+    <router-outlet></router-outlet>
+  </div>
