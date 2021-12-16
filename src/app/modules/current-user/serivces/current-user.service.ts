@@ -31,7 +31,7 @@ export class CurrentUserService {
   // -- GET - ME
   // ------------------------------------------------------------------------------------------------
   public getMe(): Observable<ResponseMe> {
-    const url = `${this.uri}`;
+    const url = `${this.uri}/`;
 
     return this.http.get<ResponseMe>(url);
   }

@@ -1,0 +1,57 @@
+/* Structure */
+.list-table-container {
+  position: relative;
+
+  max-width: 100%;
+
+  overflow: auto;
+}
+
+table.list-table {
+  width: 100%;
+}
+
+table.list-table td.mat-column-star {
+  width: 20px;
+  padding-right: 8px;
+}
+
+table.list-table th.mat-column-position, table.list-table td.mat-column-position {
+  padding-left: 8px;
+}
+
+table.list-table .mat-row .mat-cell {
+  cursor: pointer;
+}
+
+table.list-table .mat-row:hover .mat-cell {
+  background: var(--light);
+}
+
+.list-table-loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-table-rate-limit-reached {
+  max-width: 360px;
+  text-align: center;
+}
+
+/* Column Widths */
+.mat-column-number,
+.mat-column-state {
+  max-width: 64px;
+}
+
+.mat-column-created {
+  max-width: 124px;
+}

@@ -46,6 +46,7 @@ export class UserFormComponent implements OnInit {
   // ************************************************************************************************
   constructor(
     private translate: TranslateService,
+    private spinner: NgxSpinnerService,
   ) {
     this.disableForm();
    }

@@ -28,8 +28,6 @@ export class AppComponent {
   constructor(
     private translate: TranslateService,
   ) {
-      translate.setDefaultLang('gl');
-
       this.app = environment.APP_NAME;
       this.version = environment.APP_VERSION;
   }

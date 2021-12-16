@@ -5,7 +5,9 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { ResponseMe } from 'src/app/interfaces/response-data.interface';
+import { User } from 'src/app/models/user.model';
 import { CurrentUserService } from 'src/app/modules/current-user/serivces/current-user.service';
+import { UserService } from 'src/app/modules/models/services/user.service';
 
 
 // ##################################################################################################
@@ -21,7 +23,8 @@ export class CurrentUserComponent implements OnInit {
   // ** ATRIBUTOS
   // ************************************************************************************************
   subscriptions : Subscription[] = [];
-  responseMe!    : ResponseMe;
+  responseMe!   : ResponseMe;
+  userList      : User[] = [];
 
   // ************************************************************************************************
   // ** CONSTRUTOR
@@ -29,6 +32,7 @@ export class CurrentUserComponent implements OnInit {
   constructor(
     private translate: TranslateService,
     private currentUserService: CurrentUserService,
+    private userService: UserService,
   ) { }
 
   // ************************************************************************************************
@@ -38,6 +42,12 @@ export class CurrentUserComponent implements OnInit {
     this.subscriptions.push(
       this.currentUserService.getMe().subscribe((response) => {
         this.responseMe = response;
+      })
+    );
+
+    this.subscriptions.push(
+      this.userService.getAll().subscribe((response) => {
+        this.userList = response.data;
       })
     );
   }
