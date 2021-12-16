@@ -11,7 +11,6 @@ import { Project } from 'src/app/models/project.model';
 import { User } from 'src/app/models/user.model';
 
 import { CurrentUserService } from 'src/app/modules/current-user/serivces/current-user.service';
-import { ProjectService } from 'src/app/modules/models/services/project.service';
 import { CommentApp } from '../../models/commentapp.model';
 
 // ##################################################################################################
@@ -30,10 +29,18 @@ export class CurrentUserComponent implements OnInit {
   subscriptions : Subscription[] = [];
 
   responseMe!   : ResponseMe;
-  commentList   : CommentApp[] = [];
-  projectList   : Project[] = [];
+  commentsList  : CommentApp[] = [];
 
-  displayedColumns: string[] = [
+  displayedCommentsColumns: string[] = [
+    'expirationDate',
+    'title',
+    'message',
+    'createdBy',
+  ];
+
+  projectsList  : Project[] = [];
+
+  displayedProjectsColumns: string[] = [
     'name',
     'createdBy',
     'targetStartDate',
@@ -46,7 +53,6 @@ export class CurrentUserComponent implements OnInit {
   constructor(
     private translate: TranslateService,
     private currentUserService: CurrentUserService,
-    private projectService: ProjectService,
   ) { }
 
   // ************************************************************************************************
@@ -56,12 +62,8 @@ export class CurrentUserComponent implements OnInit {
     this.subscriptions.push(
       this.currentUserService.getMe().subscribe((response) => {
         this.responseMe = response;
-      })
-    );
-
-    this.subscriptions.push(
-      this.projectService.getAll().subscribe((response) => {
-        this.projectList = response.data;
+        this.projectsList = response.projects?.data;
+        this.commentsList = response.comments?.data;
       })
     );
   }

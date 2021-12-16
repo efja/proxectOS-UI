@@ -16,50 +16,50 @@ import { MatTableDataSource } from '@angular/material/table';
 import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 
-import { Project } from 'src/app/models/project.model';
+import { CommentApp } from 'src/app/models/commentapp.model';
 import { User } from '../../../../models/user.model';
 import { checkType } from '../../../../helpers/check-types.helper';
 
 // ##################################################################################################
-// ## CLASE ProjectListComponent
+// ## CLASE CommentAppListComponent
 // ##################################################################################################
 @Component({
-  selector: 'app-project-list',
-  templateUrl: './project-list.component.html',
-  styleUrls: ['../../styles/style.css'],
+  selector: 'app-comment-list',
+  templateUrl: './comment-list.component.html',
+  styleUrls: [
+    '../../styles/style.css',
+  ],
 })
-export class ProjectListComponent implements OnInit {
+export class CommentListComponent implements OnInit {
   // ************************************************************************************************
   // ** ATRIBUTOS
   // ************************************************************************************************
-  @Input() projectsList     : Project[] = [];
-  @Input() title            : string = 'Proxectos';
+  @Input() commentsList     : CommentApp[] = [];
+  @Input() title            : string = 'Comentarios';
 
-  selectedProject           : EventEmitter<Project> = new EventEmitter();
+  selectedCommentApp        : EventEmitter<CommentApp> = new EventEmitter();
 
-  ELEMENT_DATA              : Project[] = [];
-  dataSource!               : MatTableDataSource<Project>;
+  ELEMENT_DATA              : CommentApp[] = [];
+  dataSource!               : MatTableDataSource<CommentApp>;
 
   @Input() displayedColumns : string[] = [
-    'name',
+    'expirationDate',
+    'title',
+    'message',
     'createdBy',
-    'startDate',
-    'finishDate',
-    'targetStartDate',
-    'targetFinishDate',
-    'repositories',
+    'visibleToUserGroups',
   ];
 
   @ViewChild(MatPaginator, { static: false })
-  paginator!              : MatPaginator;
+  paginator!                : MatPaginator;
 
   @ViewChild(MatSort, { static: false })
-  sort!                   : MatSort;
+  sort!                     : MatSort;
 
   @ViewChild('inputTableSearch', { static: false })
-  inputTableSearch!       : ElementRef;
+  inputTableSearch!         : ElementRef;
 
-  filter                  : string = '';
+  filter                    : string = '';
 
   // ************************************************************************************************
   // ** CONSTRUTOR
@@ -93,14 +93,14 @@ export class ProjectListComponent implements OnInit {
   // ************************************************************************************************
   loadData() {
     this.ELEMENT_DATA = [];
-    this.ELEMENT_DATA = this.projectsList;
+    this.ELEMENT_DATA = this.commentsList;
 
-    this.dataSource = new MatTableDataSource<Project>(this.ELEMENT_DATA);
+    this.dataSource = new MatTableDataSource<CommentApp>(this.ELEMENT_DATA);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
 
     this.dataSource.filterPredicate = (
-      data: Project,
+      data: CommentApp,
       filter: string
     ): boolean => {
       const dataStr = Object.keys(data)
@@ -122,11 +122,11 @@ export class ProjectListComponent implements OnInit {
   }
 
   /**
-   * Devolve o obxecto Project selecionado (que se fai click sobre el).
-   * @param project obxecto Project selecionado
+   * Devolve o obxecto CommentApp selecionado (que se fai click sobre el).
+   * @param commentApp obxecto CommentApp selecionado
    */
-  returnProject(project: Project): void {
-    this.selectedProject.emit(project);
+  returnCommentApp(commentApp: CommentApp): void {
+    this.selectedCommentApp.emit(commentApp);
   }
 
   // ************************************************************************************************
@@ -145,9 +145,9 @@ export class ProjectListComponent implements OnInit {
     return result;
   }
 
-  getRepository(element: Project) {
-    return element.repositories && element.repositories.length > 0
-      ? element.repositories[0].name
+  getUserGroup(element: CommentApp) {
+    return element.visibleToUserGroups && element.visibleToUserGroups.length > 0
+      ? element.visibleToUserGroups[0].name
       : '';
   }
 

@@ -1,7 +1,15 @@
 // ##################################################################################################
 // ## IMPORTACIÓNS
 // ##################################################################################################
-import { Component, OnInit, Input, ViewChild, ElementRef, EventEmitter, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ViewChild,
+  ElementRef,
+  EventEmitter,
+  SimpleChanges,
+} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -16,23 +24,21 @@ import { User } from 'src/app/models/user.model';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: [
-    '../../styles/style.css',
-  ],
+  styleUrls: ['../../styles/style.css'],
 })
 export class UserListComponent implements OnInit {
   // ************************************************************************************************
   // ** ATRIBUTOS
   // ************************************************************************************************
-  @Input() userList : User[] = [];
-  @Input() title    : string = "Usuarios";
+  @Input() userList         : User[] = [];
+  @Input() title            : string = 'Usuarios';
 
-  selectedUser      : EventEmitter<User> = new EventEmitter();
+  selectedUser              : EventEmitter<User> = new EventEmitter();
 
-  ELEMENT_DATA      : User[] = [];
-  dataSource!       : MatTableDataSource<User>;
+  ELEMENT_DATA: User[] = [];
+  dataSource!               : MatTableDataSource<User>;
 
-  @Input() displayedColumns: string[] = [
+  @Input() displayedColumns : string[] = [
     'name',
     'firstSurname',
     'secondSurname',
@@ -44,28 +50,28 @@ export class UserListComponent implements OnInit {
   ];
 
   @ViewChild(MatPaginator, { static: false })
-  paginator!: MatPaginator;
+  paginator!                : MatPaginator;
 
   @ViewChild(MatSort, { static: false })
-  sort!: MatSort;
+  sort!                     : MatSort;
 
-  @ViewChild("inputTableSearch", { static: false })
-  inputTableSearch!: ElementRef;
+  @ViewChild('inputTableSearch', { static: false })
+  inputTableSearch!         : ElementRef;
 
-  filter            : string = '';
+  filter                    : string = '';
+
   // ************************************************************************************************
   // ** CONSTRUTOR
   // ************************************************************************************************
   constructor(
     private translate: TranslateService,
-    private spinner: NgxSpinnerService,
-  ) { }
+    private spinner: NgxSpinnerService
+  ) {}
 
   // ************************************************************************************************
   // ** MÉTODOS DE ANGULAR
   // ************************************************************************************************
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit() {
     // Empregase o setTimeout() para deixar tempo a que se cargue a vista
@@ -93,21 +99,29 @@ export class UserListComponent implements OnInit {
     this.dataSource.sort = this.sort;
 
     this.dataSource.filterPredicate = (data: User, filter: string): boolean => {
-      const dataStr = Object.keys(data).reduce((currentTerm: string, key: string) => {
-        return (currentTerm + (data as { [key: string]: any })[key] + '◬');
-      },'').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+      const dataStr = Object.keys(data)
+        .reduce((currentTerm: string, key: string) => {
+          return currentTerm + (data as { [key: string]: any })[key] + '◬';
+        }, '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase();
 
-      const transformedFilter = filter.trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+      const transformedFilter = filter
+        .trim()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase();
 
       return dataStr.indexOf(transformedFilter) !== -1;
     };
   }
 
   /**
-  * Devolve o obxecto User selecionado (que se fai click sobre el).
-  * @param user obxecto User selecionado
-  */
-   returnUser(user: User): void {
+   * Devolve o obxecto User selecionado (que se fai click sobre el).
+   * @param user obxecto User selecionado
+   */
+  returnUser(user: User): void {
     this.selectedUser.emit(user);
   }
 
@@ -115,15 +129,11 @@ export class UserListComponent implements OnInit {
   // ** UTILIDADES
   // ************************************************************************************************
   getContact(element: User) {
-    return (element.contacts)
-      ? element.contacts[0]
-      : '';
+    return element.contacts ? element.contacts[0] : '';
   }
 
   getUserSchedule(element: User) {
-    return (element.userSchedule)
-      ? element.userSchedule.description
-      : '';
+    return element.userSchedule ? element.userSchedule.description : '';
   }
 
   applyFilter(event: Event) {

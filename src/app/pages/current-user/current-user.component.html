@@ -3,9 +3,9 @@
     <app-user-form [user]="responseMe._me.data" [title]="title"></app-user-form>
   </div>
   <div class="row mb-2">
-    <app-project-list [projectList]="projectList" [displayedColumns]="displayedColumns"></app-project-list>
+    <app-project-list [projectsList]="projectsList" [displayedColumns]="displayedProjectsColumns"></app-project-list>
   </div>
   <div class="row mb-2">
-    <app-project-list [projectList]="projectList" [displayedColumns]="displayedColumns"></app-project-list>
+    <app-comment-list [commentsList]="commentsList" [displayedColumns]="displayedCommentsColumns"></app-comment-list>
   </div>
 </div>

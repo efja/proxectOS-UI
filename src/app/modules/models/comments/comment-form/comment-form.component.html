@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-header class="my-3">
+    <mat-card-title fxLayout="row" fxLayoutAlign="start cv">
+      {{ title }}
+    </mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="formGroupControl" autocomplete="off" class="d-flex d-flex flex-wrap align-items-start">
+      <mat-form-field class="mx-1">
+        <input matInput="matInput" name="expirationDate" placeholder="Expiration Date" formControlName="expirationDate" />
+      </mat-form-field>
+
+      <mat-form-field class="mx-1">
+        <input matInput="matInput" name="title" placeholder="Target Start Date" formControlName="title" required />
+      </mat-form-field>
+
+      <mat-form-field class="mx-1">
+        <input matInput="matInput" name="message" placeholder="Target Finish Date" formControlName="message" required />
+      </mat-form-field>
+
+      <mat-form-field class="mx-1">
+        <input matInput="matInput" name="visibleToUserGroups" placeholder="Name" formControlName="visibleToUserGroups" required />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions [align]="'end'">
+    <button mat-raised-button>BOTÓN</button>
+  </mat-card-actions>
+
+</mat-card>
