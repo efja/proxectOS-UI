@@ -6,37 +6,37 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 
-import { User } from 'src/app/models/user.model';
+import { Project } from 'src/app/models/project.model';
 
 // ##################################################################################################
-// ## CLASE UserFormComponent
+// ## CLASE ProjectFormComponent
 // ##################################################################################################
 @Component({
-  selector: 'app-user-form',
-  templateUrl: './user-form.component.html',
+  selector: 'app-project-form',
+  templateUrl: './project-form.component.html',
   styles: [
   ]
 })
-export class UserFormComponent implements OnInit {
+export class ProjectFormComponent implements OnInit {
   // ************************************************************************************************
   // ** ATRIBUTOS
   // ************************************************************************************************
-  @Input() user?  : User;
+  @Input() project?  : Project;
   @Input() title  : string = "Usuario";
 
   formGroupControl = new FormGroup({
+    startDate         : new FormControl(''),
+    finishDate        : new FormControl(''),
+    targetStartDate   : new FormControl(''),
+    targetFinishDate  : new FormControl(''),
     name              : new FormControl('', Validators.required),
-    firstSurname      : new FormControl('', Validators.required),
-    secondSurname     : new FormControl(''),
-    login             : new FormControl('', Validators.required),
-    password          : new FormControl('', Validators.required),
-    isCustomer        : new FormControl(''),
-    salary            : new FormControl(''),
-    flexibleSchedule  : new FormControl(''),
-    vacantions        : new FormControl(''),
-    userSchedule      : new FormControl(''),
-    contacts          : new FormControl('', Validators.required),
-    defaultUserGroups : new FormControl(''),
+    description       : new FormControl('', Validators.required),
+    assignedStage     : new FormControl(''),
+    assignedUsers     : new FormControl(''),
+    productOwner      : new FormControl('', Validators.required),
+    requirements      : new FormControl(''),
+    repositories      : new FormControl(''),
+    comments          : new FormControl(''),
   });
 
   // ************************************************************************************************
@@ -63,23 +63,23 @@ export class UserFormComponent implements OnInit {
   // ** MÉTODOS PROPIOS
   // ************************************************************************************************
   loadDataOnForm() {
-    if (this.user) {
+    if (this.project) {
       // ------------------------------------------------------------------------------------------------------------------
       // formGroupControl
       // ------------------------------------------------------------------------------------------------------------------
       this.formGroupControl.setValue({
-        name              : (this.user.name) ? this.user.name : '',
-        firstSurname      : (this.user.firstSurname) ? this.user.firstSurname : '',
-        secondSurname     : (this.user.secondSurname) ? this.user.secondSurname : '',
-        login             : (this.user.login) ? this.user.login : '',
-        password          : (this.user.password) ? this.user.password : '',
-        isCustomer        : (this.user.isCustomer) ? this.user.isCustomer : '',
-        salary            : (this.user.salary) ? this.user.salary : '',
-        flexibleSchedule  : (this.user.flexibleSchedule) ? this.user.flexibleSchedule : '',
-        vacantions        : (this.user.vacantions) ? this.user.vacantions : '',
-        userSchedule      : (this.user.userSchedule) ? this.user.userSchedule : '',
-        contacts          : (this.user.contacts) ? this.user.contacts : '',
-        defaultUserGroups : (this.user.defaultUserGroups) ? this.user.defaultUserGroups : '',
+        startDate         : (this.project.startDate) ? this.project.startDate : '',
+        finishDate        : (this.project.finishDate) ? this.project.finishDate : '',
+        targetStartDate   : (this.project.targetStartDate) ? this.project.targetStartDate : '',
+        targetFinishDate  : (this.project.targetFinishDate) ? this.project.targetFinishDate : '',
+        name              : (this.project.name) ? this.project.name : '',
+        description       : (this.project.description) ? this.project.description : '',
+        assignedStage     : (this.project.assignedStage) ? this.project.assignedStage : '',
+        assignedUsers     : (this.project.assignedUsers) ? this.project.assignedUsers : '',
+        productOwner      : (this.project.productOwner) ? this.project.productOwner : '',
+        requirements      : (this.project.requirements) ? this.project.requirements : '',
+        repositories      : (this.project.repositories) ? this.project.repositories : '',
+        comments          : (this.project.comments) ? this.project.comments : '',
       });
     }
 

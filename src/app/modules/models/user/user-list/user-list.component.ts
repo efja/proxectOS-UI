@@ -7,8 +7,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { User } from 'src/app/models/user.model';
 
+import { User } from 'src/app/models/user.model';
 
 // ##################################################################################################
 // ## CLASE UserListComponent
@@ -17,7 +17,6 @@ import { User } from 'src/app/models/user.model';
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: [
-    './user-list.component.css',
     '../../styles/style.css',
   ],
 })
@@ -26,12 +25,14 @@ export class UserListComponent implements OnInit {
   // ** ATRIBUTOS
   // ************************************************************************************************
   @Input() userList : User[] = [];
+  @Input() title    : string = "Usuarios";
+
   selectedUser      : EventEmitter<User> = new EventEmitter();
 
   ELEMENT_DATA      : User[] = [];
   dataSource!       : MatTableDataSource<User>;
 
-  displayedColumns: string[] = [
+  @Input() displayedColumns: string[] = [
     'name',
     'firstSurname',
     'secondSurname',

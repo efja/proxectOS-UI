@@ -14,6 +14,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpLoaderFactory } from 'src/app/app.module';
 import { HttpClient } from '@angular/common/http';
+import { ProjectFormComponent } from './project/project-form/project-form.component';
+import { ProjectListComponent } from './project/project-list/project-list.component';
 
 // --------------------------------------------------------------------------------------------------
 // Compoñentes propios
@@ -27,6 +29,8 @@ import { HttpClient } from '@angular/common/http';
     // Compoñentes propios
     UserListComponent,
     UserFormComponent,
+    ProjectFormComponent,
+    ProjectListComponent,
   ],
 
   // ------------------------------------------------------------------------------------------------
@@ -60,6 +64,8 @@ import { HttpClient } from '@angular/common/http';
   // ------------------------------------------------------------------------------------------------
   exports: [
     // Compoñentes propios
+    ProjectListComponent,
+    ProjectFormComponent,
     UserListComponent,
     UserFormComponent,
   ],

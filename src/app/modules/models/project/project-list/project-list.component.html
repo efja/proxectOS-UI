@@ -1,0 +1,72 @@
+<mat-card>
+  <mat-card-header fxLayout="row" class="my-3" fxLayoutAlign="space-between center">
+    <mat-card-title fxFill>
+      {{ title }}
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-form-field class="d-block">
+      <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #inputTableSearch>
+    </mat-form-field>
+
+    <div class="list-table-container">
+      <table class="list-table" mat-table [dataSource]="dataSource" matSort>
+        <!-- name -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef class="px-3" mat-sort-header> Nome </th>
+          <td mat-cell *matCellDef="let element" class="px-3" [ngStyle]="{ 'color': 'inherit' }">{{ element.name }} </td>
+        </ng-container>
+
+        <!-- productOwner -->
+        <ng-container matColumnDef="createdBy">
+          <th mat-header-cell *matHeaderCellDef class="px-3" mat-sort-header> Propietario </th>
+          <td mat-cell *matCellDef="let element" class="px-3" [ngStyle]="{ 'color': 'inherit' }">{{ getUser(element.productOwner) }} </td>
+        </ng-container>
+
+        <!-- startDate -->
+        <ng-container matColumnDef="startDate">
+          <th mat-header-cell *matHeaderCellDef class="px-3" mat-sort-header> Data de inicio </th>
+          <td mat-cell *matCellDef="let element" class="px-3" [ngStyle]="{ 'color': 'inherit' }">{{ element.startDate }} </td>
+        </ng-container>
+
+        <!-- finishDate -->
+        <ng-container matColumnDef="finishDate">
+          <th mat-header-cell *matHeaderCellDef class="px-3" mat-sort-header> Data de finalización </th>
+          <td mat-cell *matCellDef="let element" class="px-3" [ngStyle]="{ 'color': 'inherit' }">{{ element.finishDate }} </td>
+        </ng-container>
+
+        <!-- targetStartDate -->
+        <ng-container matColumnDef="targetStartDate">
+          <th mat-header-cell *matHeaderCellDef class="px-3" mat-sort-header> Data de inicio (obxectivo) </th>
+          <td mat-cell *matCellDef="let element" class="px-3" [ngStyle]="{ 'color': 'inherit' }">{{ element.targetStartDate }} </td>
+        </ng-container>
+
+        <!-- targetFinishDate -->
+        <ng-container matColumnDef="targetFinishDate">
+          <th mat-header-cell *matHeaderCellDef class="px-3" mat-sort-header> Data de fin (obxectivo) </th>
+          <td mat-cell *matCellDef="let element" class="px-3" [ngStyle]="{ 'color': 'inherit' }">{{ element.targetFinishDate }} </td>
+        </ng-container>
+
+        <!-- repositories -->
+        <ng-container matColumnDef="repositories">
+          <th mat-header-cell *matHeaderCellDef class="px-3" mat-sort-header> Repositorio principal </th>
+          <td mat-cell *matCellDef="let element" class="px-3" [ngStyle]="{ 'color': 'inherit' }">{{ getRepository(element) }} </td>
+        </ng-container>
+
+        <!-- Propiedades da táboa -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="returnProject(row)"
+          [ngClass]="{ hovered: row.hovered }" (mouseover)="row.hovered = true" (mouseout)="row.hovered = false">
+        </tr>
+
+        <!-- Se non hai datos -->
+        <tr mat-row *matNoDataRow>
+          <td mat-cell colspan="9">Sen datas</td>
+        </tr>
+      </table>
+    </div>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </mat-card-content>
+</mat-card>

@@ -1,8 +1,11 @@
 <div class="container">
   <div class="row mb-2">
-    <app-user-list [userList]="userList"></app-user-list>
+    <app-user-form [user]="responseMe._me.data" [title]="title"></app-user-form>
   </div>
   <div class="row mb-2">
-    <app-user-form [user]="responseMe._me.data"></app-user-form>
+    <app-project-list [projectList]="projectList" [displayedColumns]="displayedColumns"></app-project-list>
+  </div>
+  <div class="row mb-2">
+    <app-project-list [projectList]="projectList" [displayedColumns]="displayedColumns"></app-project-list>
   </div>
 </div>
